@@ -1,0 +1,108 @@
+/* static/style.css */
+
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#00d1b2;
+  --muted:#98a0b5;
+  --glass: rgba(255,255,255,0.03);
+}
+
+*{box-sizing:border-box;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif}
+body{
+  margin:0;
+  background: linear-gradient(180deg, #071226 0%, #071a1f 100%);
+  color:#e6eef7;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.container{
+  max-width:1100px;
+  margin:20px auto;
+  padding:20px;
+}
+
+h1{
+  margin:6px 0 16px;
+  font-size:24px;
+  color: #e9f6f2;
+}
+
+.controls{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+  align-items:center;
+}
+
+.controls label{margin-right:12px; font-size:14px; color:var(--muted)}
+.controls input[type="range"]{vertical-align:middle}
+
+.btn{
+  background:var(--glass);
+  color:#dff3ee;
+  border:1px solid rgba(255,255,255,0.04);
+  padding:8px 10px;
+  margin-left:6px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+.btn.primary{
+  background: linear-gradient(90deg, #00c6a7, #00a9f7);
+  color:#051122;
+  border:none;
+}
+.btn.active{box-shadow:0 6px 18px rgba(0,0,0,0.5); transform:translateY(-1px)}
+
+#gridWrap{
+  margin-top:10px;
+  background:#06121a;
+  padding:12px;
+  border-radius:12px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+}
+
+.grid{
+  display:grid;
+  gap:2px;
+  background: transparent;
+  padding:6px;
+  border-radius:8px;
+  user-select:none;
+}
+
+.cell{
+  width:28px;
+  height:28px;
+  background: rgba(255,255,255,0.04);
+  border-radius:6px;
+  display:inline-block;
+}
+
+/* states */
+.cell.start{background:linear-gradient(90deg,#00ffb3,#00aee6); box-shadow:0 4px 12px rgba(0,170,200,0.14)}
+.cell.end{background:linear-gradient(90deg,#ff8a8a,#ffcd6b); box-shadow:0 4px 12px rgba(255,160,100,0.12)}
+.cell.wall{background:#0b1b2a; border:1px solid rgba(0,0,0,0.6)}
+.cell.visited{background: rgba(120,180,255,0.12); animation: pulse 0.5s ease-in-out;}
+.cell.path{background: linear-gradient(90deg,#ffd166,#ff6b6b); box-shadow:0 6px 18px rgba(255,102,102,0.12)}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  50% { transform: scale(0.98); }
+  to { transform: scale(1); }
+}
+
+.legend{
+  display:flex;
+  gap:18px;
+  margin-top:10px;
+  color:var(--muted);
+  align-items:center;
+}
+
+.legend .cell{width:18px; height:18px; margin-right:8px; border-radius:4px; display:inline-block}
+
+footer{margin-top:16px; color:var(--muted)}

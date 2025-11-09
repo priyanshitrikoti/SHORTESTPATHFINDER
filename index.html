@@ -1,0 +1,58 @@
+<!-- templates/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Shortest Path Finder — Dijkstra (Flask)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Shortest Path Finder — Dijkstra</h1>
+
+    <div class="controls">
+      <div class="left">
+        <label>Grid Size:
+          <input id="gridSize" type="range" min="10" max="40" value="20" />
+          <span id="gridSizeVal">20</span>
+        </label>
+
+        <label>Speed:
+          <input id="speed" type="range" min="5" max="200" value="60" />
+          <span id="speedVal">60</span> ms
+        </label>
+
+        <label><input type="checkbox" id="diagonal" /> Allow diagonal</label>
+      </div>
+
+      <div class="right">
+        <button id="modeStart" class="btn active">Place Start</button>
+        <button id="modeEnd" class="btn">Place End</button>
+        <button id="modeWall" class="btn">Draw Walls</button>
+        <button id="clearBtn" class="btn">Clear Grid</button>
+        <button id="randWallBtn" class="btn">Random Walls</button>
+        <button id="findBtn" class="btn primary">Find Path</button>
+      </div>
+    </div>
+
+    <div id="gridWrap">
+      <div id="grid" class="grid"></div>
+    </div>
+
+    <div class="legend">
+      <div><span class="cell legend-start"></span> Start</div>
+      <div><span class="cell legend-end"></span> End</div>
+      <div><span class="cell legend-wall"></span> Wall</div>
+      <div><span class="cell legend-visited"></span> Visited</div>
+      <div><span class="cell legend-path"></span> Path</div>
+    </div>
+
+    <footer>
+      <small>Made for DAA project • Click/drag to paint walls • Place Start & End then click "Find Path"</small>
+    </footer>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
